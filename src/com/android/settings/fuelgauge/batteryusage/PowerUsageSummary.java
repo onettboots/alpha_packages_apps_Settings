@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2022 The Android Open Source Project
+ * Copyright (C) 2023 AlphaDroid
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +27,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings.Global;
-import androidx.preference.Preference;
+import android.text.TextUtils;
 import android.util.Log;
 
 import androidx.annotation.VisibleForTesting;
@@ -77,6 +78,7 @@ public class PowerUsageSummary extends PowerUsageBase implements
     private static final String KEY_CURRENT_BATTERY_CAPACITY = "current_battery_capacity";
     private static final String KEY_DESIGNED_BATTERY_CAPACITY = "designed_battery_capacity";
     private static final String KEY_BATTERY_CHARGE_CYCLES = "battery_charge_cycles";
+    private static final String KEY_SMART_CHARGING = "smart_charging_key";
 
     @VisibleForTesting
     static final int BATTERY_INFO_LOADER = 1;
@@ -205,6 +207,13 @@ public class PowerUsageSummary extends PowerUsageBase implements
             getPreferenceScreen().removePreference(mCurrentBatteryCapacity);
             getPreferenceScreen().removePreference(mDesignedBatteryCapacity);
             getPreferenceScreen().removePreference(mBatteryChargeCycles);
+        }
+
+        Preference mSmartChargingPreference = findPreference(KEY_SMART_CHARGING);
+        boolean mSmartChargingSupported = getResources().getBoolean(
+                com.android.internal.R.bool.config_smartChargingAvailable);
+        if (!mSmartChargingSupported && mSmartChargingPreference != null) {
+            getPreferenceScreen().removePreference(mSmartChargingPreference);
         }
 
         if (Utils.isBatteryPresent(getContext())) {
@@ -415,6 +424,11 @@ public class PowerUsageSummary extends PowerUsageBase implements
                         keys.add(KEY_CURRENT_BATTERY_CAPACITY);
                         keys.add(KEY_DESIGNED_BATTERY_CAPACITY);
                         keys.add(KEY_BATTERY_CHARGE_CYCLES);
+                    }
+
+                    if (!context.getResources().getBoolean(
+                                com.android.internal.R.bool.config_smartChargingAvailable)) {
+                        keys.add(KEY_SMART_CHARGING);
                     }
 
                     return keys;
