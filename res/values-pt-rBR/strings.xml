@@ -5907,4 +5907,20 @@
     <string name="find_broadcast_password_dialog_password_error" msgid="243855327674765">"Senha incorreta"</string>
     <string name="bt_le_audio_scan_qr_code_scanner" msgid="7614569515419813053">"Para começar a ouvir, centralize o código QR abaixo"</string>
     <string name="bt_le_audio_qr_code_is_not_valid_format" msgid="7821837654128137901">"O código QR não está em um formato válido"</string>
+    <!-- App lock -->
+    <string name="app_lock_title">Bloqueio de apps</string>
+    <string name="app_lock_authentication_dialog_title">Desbloquear</string>
+    <string name="enable_debugging">Ativar depuração</string>
+    <string name="disable_debugging">Desativar depuração</string>
+    <string name="app_lock_packages_title">Aplicativos com proteção</string>
+    <string name="app_lock_packages_summary">Selecione os aplicativos para proteger com dados biométricos ou credenciais do dispositivo</string>
+    <string name="app_lock_timeout_title">Tempo limite para bloqueio automático</string>
+    <string name="app_lock_timeout_summary">Duração do tempo depois do qual um aplicativo desbloqueado em segundo plano deve ser bloqueado</string>
+    <string name="app_lock_notifications_title">Fechar notificações</string>
+    <string name="app_lock_notifications_summary">          O conteúdo das notificações serão ocultadas e recolhidas para os aplicativos selecionados quando forem bloqueados.
+          Notificações pop-up serão desativadas automaticamente.
+     </string>
+    <string name="app_lock_notifications_disabled_summary">Proteja um aplicativo primeiro</string>
+    <string name="app_lock_biometrics_allowed_title">Habilitar dados biométricos para desbloquear</string>
+    <string name="app_lock_footer_text">Balões serão automaticamente dispensados após o tempo limite</string>
 </resources>
