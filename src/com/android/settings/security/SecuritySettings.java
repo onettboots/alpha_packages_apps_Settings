@@ -111,7 +111,7 @@ public class SecuritySettings extends DashboardFragment {
         controllers.add(new PreferenceCategoryController(context, SECURITY_CATEGORY)
                 .setChildren(securityPreferenceControllers));
         controllers.addAll(securityPreferenceControllers);
-        controllers.add(new AppLockSettingsPreferenceController(context, APP_LOCK_PREF_KEY, host, lifecycle));
+        controllers.add(new AppLockSettingsPreferenceController(context, APP_LOCK_PREF_KEY, lifecycle, host));
         return controllers;
     }
 

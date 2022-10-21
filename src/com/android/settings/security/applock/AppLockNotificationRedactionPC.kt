@@ -38,7 +38,7 @@ class AppLockNotificationRedactionPC(
 ) : CustomTogglePreferenceController(context, KEY) {
 
     private val appLockManager = context.getSystemService(AppLockManager::class.java)
-    private var shouldRedactNotification = false
+    private var shouldRedactNotification = AppLockManager.DEFAULT_REDACT_NOTIFICATION
     private var preference: Preference? = null
 
     init {
