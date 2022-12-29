@@ -658,4 +658,6 @@
     <!-- Whether the given language capitalizes nouns -->
     <bool name="language_capitalizes_nouns">false</bool>
 
+    <!-- Does the device support color inversion -->
+    <bool name="config_displayInversionAvailable">true</bool>
 </resources>
