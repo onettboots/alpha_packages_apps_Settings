@@ -45,6 +45,7 @@ public class SmartChargingSettings extends DashboardFragment implements OnPrefer
     private static final String TAG = "SmartChargingSettings";
     private static final String KEY_SMART_CHARGING_LEVEL = "smart_charging_level";
     private static final String KEY_SMART_CHARGING_RESUME_LEVEL = "smart_charging_resume_level";
+    private static final String SMART_CHARGING_FOOTER = "smart_charging_footer";
 
     private CustomSeekBarPreference mSmartChargingLevel;
     private CustomSeekBarPreference mSmartChargingResumeLevel;
@@ -72,6 +73,8 @@ public class SmartChargingSettings extends DashboardFragment implements OnPrefer
         if (currentResumeLevel >= currentLevel) currentResumeLevel = currentLevel -1;
         mSmartChargingResumeLevel.setValue(currentResumeLevel);
         mSmartChargingResumeLevel.setOnPreferenceChangeListener(this);
+
+        findPreference(SMART_CHARGING_FOOTER).setTitle(R.string.smart_charging_footer);
     }
 
     @Override
